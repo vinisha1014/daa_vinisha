@@ -67,11 +67,6 @@
 
 
 
-
-
-
-
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -82,10 +77,11 @@ void rabinKarp( string text, string pattern ) {
     int n=text.size();
     int m=pattern.size();
 
-    int h=1;
+    int h=1; // d rase to m-1 mod q
     for(int i=0;i<m-1;i++){
         h=(h*d)%q;
     }
+    
 
     int p=0;
     int t=0;
@@ -110,6 +106,8 @@ void rabinKarp( string text, string pattern ) {
 
                 if(i<n-m){
                     t=(d*(t-text[i]*h)+text[i+m])%q;
+                    //vinisha
+                    //inis
 
                     if(t<0){
                         t+=q;

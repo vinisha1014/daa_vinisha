@@ -3,11 +3,16 @@
 using namespace std;
 
 vector <int> buildLPS(string p){
+
     int n=p.size();
+
     vector <int> lps(n,0);
+
     int len=0;
 
     for(int i=1;i<n;){
+        //aabbcc
+        //01
         if(p[i]==p[len]){
              len++;
         lps[i]=len;
@@ -18,6 +23,9 @@ vector <int> buildLPS(string p){
     
     else{
         if(len!=0){
+            //aabbcc
+            //adba
+            
             len=lps[len-1];
         }
         else{
@@ -31,16 +39,21 @@ return lps;
 
 
 void KMP(string t,string p){
+
+    //text
+    //pattern
     int n=t.size();
     int m=p.size();
 
     vector <int> lps=buildLPS(p);
 
-    int i=0;
-    int j=0;
+    int i=0; //text
+    int j=0;    //pattern
 
     while(i<n){
         if(t[i]==p[j]){
+        //aabbcc
+        //adba
             i++;
             j++;
         }
