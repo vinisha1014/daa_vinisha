@@ -28,6 +28,8 @@ double fractionalKnapsack(int W,vector<Item> items){
         }
         else{
             finalvalue+=i.value*((double)W/i.weight);
+            // If the weight of the item is more than the remaining capacity,
+            
 
           
             W=0;
